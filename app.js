@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const fs = require('fs');
+const docs = require('./lib/docs');
 
 const app = express();
 
@@ -14,5 +15,9 @@ app.get('/',(req,res) => {
         res.send(data);
     });
 });
+
+app.get('/search',(req,res) => {
+    docs.search(req,res);
+})
 
 app.listen(3000);
