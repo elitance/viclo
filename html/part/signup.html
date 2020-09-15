@@ -1,0 +1,35 @@
+<div class='content'>
+    <h1>Sign Up</h1>
+    <form action="/account/signup" method="POST">
+        <p>
+            <label for="id">Username</label><br>
+            <input id="id" type="text" name="un" placeholder="Enter your username" pattern="[A-Za-z0-9.]+"><br>
+        </p>
+        <p>
+            <label for="pw">Password</label><br>
+            <input id="pw" type="password" name="pw" placeholder="Enter your password"><br>
+            <span style="margin-left: 15px; font-size: 12px">At least 8 letters, one number, and lower/uppercase required.</span>
+        </p>
+        <p>
+            <label for="c-pw">Confirm Password</label><br>
+            <input id="c-pw" type="password" name="cPw" placeholder="Confirm your password"><br>
+        <p>
+        <input type="submit" value="Login" class="unav">
+        <script>
+            const pw = document.querySelectorAll('input[type=password]');
+            const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
+            pw.forEach((input) => {
+                input.addEventListener('input',(e) => {
+                    if (pw[0].value === pw[1].value && pw[0].value !== '' && pw[1].value !== '') {
+                        if (regex.test(pw[0].value)) {
+                            document.querySelector('input[type=submit]').classList.remove('unav');
+                        }
+                    } else {
+                        document.querySelector('input[type=submit]').classList.add('unav');
+                    }
+                })
+            });
+        </script>
+    </form>
+    $1
+</div>

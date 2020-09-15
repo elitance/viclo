@@ -1,41 +1,31 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const compression = require('compression');
-const docs = require('./lib/docs');
-const acc = require('./lib/account');
+const fs = require('fs');
+const url = require('url');
+const template = require('./lib/template');
+const db = require('./lib/mysql');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(compression());
+app.use(require('body-parser').urlencoded({extended: false}));
+app.use(require('compression')());
 app.use(express.static('public'));
+app.use('/account',require('./lib/account'));
 
 app.get('/',(req,res) => {
-    docs.home(req,res);
+    fs.readFile('html/index.html','utf8',(err,data) => {
+        res.send(data);
+    });
 });
 
 app.get('/search',(req,res) => {
-    docs.search(req,res);
+    const query = url.parse(req.url,true).query.q;
+    db.query('select * from docs where title = ?',[query],(err,doc) => {
+        if (!doc[0]) res.send(template.html(query,template.part('search',query)));
+    });
 });
 
-app.get('/account',(req,res) => {
-    res.redirect('/account/login');
-});
-
-app.get('/account/login',(req,res) => {
-    acc.login(req,res);
-});
-
-app.post('/account/login',(req,res) => {
-    acc.loginProc(req,res);
-});
-
-app.get('/account/signup',(req,res) => {
-    acc.signup(req,res);
-});
-
-app.post('/account/signup',(req,res) => {
-    acc.signupConfirm(req,res);
+app.use((req,res) => {
+    res.send(template.notFound);
 });
 
 app.listen(3000);

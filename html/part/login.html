@@ -1,0 +1,21 @@
+<div class='content'>
+    <h1>Login</h1>
+    <form action="/account/login" method="POST">
+        <p>
+            <label for="id">Username</label><br>
+            <input id="id" type="text" name="un" placeholder="Username"><br>
+        </p>
+        <p>
+            <label for="pw">Password</label><br>
+            <input id="pw" type="password" name="pw" placeholder="Password"><br>
+        </p>
+        <input type="submit" value="Login">
+    </form>
+    $1
+    Don't have an account? <a href="/account/signup">Sign Up</a>!
+    <script>
+        if (localStorage.getItem('login')) {
+            document.querySelector('.content').innerHTML = '<h1>Login</h1>You have already logged in.';
+        }
+    </script>
+</div>

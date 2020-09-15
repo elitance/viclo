@@ -47,7 +47,7 @@ nav a, nav a:hover {
     margin: 10px;
 }
 
-.parent div:nth-child(2) {
+.parent .content {
     flex-basis: 85%;
     background: white;
     border-left: 1px solid #a7d7f9;
@@ -86,11 +86,11 @@ form input[type=submit] {
     padding: 5px;
     border-radius: 2px;
     margin: 15px;
-    transition: background .2s, filter .2s;
+    transition: background .2s;
 }
 
 form input[type=submit]:hover, form input[type=submit]:focus {
-    background: rgb(3, 102, 214,.7);
+    background: rgba(3,102,214,.7);
 }
 
 .fail {
@@ -99,5 +99,6 @@ form input[type=submit]:hover, form input[type=submit]:focus {
 
 .unav {
     pointer-events: none;
-    filter: opacity(.7);
+    border: 1.5px solid #0366d6;
+    background: rgba(3,102,214,.7) !important;
 }
