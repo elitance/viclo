@@ -28,6 +28,14 @@ app.get('/account/login',(req,res) => {
 
 app.post('/account/login',(req,res) => {
     acc.loginProc(req,res);
-})
+});
+
+app.get('/account/signup',(req,res) => {
+    acc.signup(req,res);
+});
+
+app.post('/account/signup',(req,res) => {
+    acc.signupConfirm(req,res);
+});
 
 app.listen(3000);

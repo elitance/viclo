@@ -29,3 +29,13 @@ form input {
     height: 35px;
     font-size: 16px;
 }
+
+.sidebar {
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+
+.sidebar a {
+    margin-right: 15px;
+}
