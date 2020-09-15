@@ -9,7 +9,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 15px;
-    font-family: Libre Baskerville, Times New Roman, Times, serif;
 }
 
 h1 {
@@ -28,14 +27,5 @@ form {
 form input {
     width: 500px;
     height: 35px;
-    border: 1.5px solid gray;
-    border-radius: 5px;
-    padding: 5px 5px 5px 8px;
     font-size: 16px;
-    transition: border .2s, box-shadow .2s;
-}
-
-form input:focus {
-    box-shadow: 0 0 3px #0366d6;
-    border: 1.5px solid #0366d6;
 }
