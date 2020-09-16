@@ -33,7 +33,7 @@ nav a, nav a:hover {
     width: 100%;
 }
 
-.parent div {
+.parent > div {
     padding: 30px;
 }
 
@@ -50,14 +50,35 @@ nav a, nav a:hover {
 .parent .content {
     flex-basis: 85%;
     background: white;
+    padding-right: 15px;
     border-left: 1px solid #a7d7f9;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.parent .content p {
+    overflow-wrap: break-word;
 }
 
 .parent .results-parent h1 {
     font-size: 55px;
     color: gray;
     border: none;
+}
+
+.parent .write input[type=text]:nth-child(1) {
+    width: 35%;
+    height: 35px;
+    padding: 5px;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none;
+    border-bottom: 1.5px solid gray;
+    font-size: 25px;
+}
+
+.parent .write form {
+    height: 90%;
 }
 
 .parent div h1 {
@@ -75,7 +96,6 @@ form input[type=text], form input[type=password], form input[type=email] {
     margin: 15px 15px 0 15px;
     width: 300px;
     height: 35px;
-    border-radius: 2px !important;
 }
 
 form input[type=submit], form input[type=button] {
@@ -93,6 +113,15 @@ form input[type=submit], form input[type=button] {
 
 form input[type=submit]:hover, form input[type=submit]:focus, form input[type=button]:hover, form input[type=button]:focus {
     background: rgba(3,102,214,.7);
+}
+
+form textarea {
+    margin: 15px;
+    border: none;
+    resize: none;
+    width: 100%;
+    height: 90%;
+    font-size: 16px;
 }
 
 .fail {
@@ -115,4 +144,51 @@ form input[type=submit]:hover, form input[type=submit]:focus, form input[type=bu
     pointer-events: none;
     border: 1.5px solid #0366d6;
     background: rgba(3,102,214,.5) !important;
+}
+
+.results {
+    padding: 15px;
+    display: block;
+    border: 1.2px solid white;
+    color: black;
+    font-weight: 600;
+    text-decoration: none !important;
+    border-radius: 5px;
+    width: 300px;
+    height: 100px;
+    margin: 15px;
+    font-size: 20px;
+    transition: box-shadow .2s;
+}
+
+.results:hover {
+    box-shadow: 1px 1px 5px rgba(0,0,0,.3);
+}
+
+.results div {
+    font-weight: initial;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: gray;
+    font-size: 15px;
+}
+
+.control {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.control button {
+    margin-left: 10px;
+    background: #fafbfc;
+    border: 1.5px solid #0366d6;
+    color: #0366d6;
+    border-radius: 3px;
+    padding: 4px 7px 4px 7px;
+    transition: background .2s, color .2s;
+}
+
+.control button:hover {
+    background: #0366d6;
+    color: #fafbfc;
 }
