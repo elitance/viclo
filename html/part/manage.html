@@ -1,0 +1,31 @@
+<div class="content">
+    <h1>Account Management</h1>
+    <form action="/account/verify" method="POST">
+        <p>
+            <label for="un">Change Username</label>
+            <input type="text" id="un" name="un" placeholder="Enter your new name" value="$1" pattern="[A-Za-z0-9]+">
+        </p>
+        <p>
+            <label for="pw">Change Password</label>
+            <input type="password" class="change" id="pw" name="nPw" placeholder="Enter your new password">
+            <input type="password" class="change" name="cPw" placeholder="Confirm your new password">
+            <span style="margin-left: 15px; font-size: 12px">At least 8 letters, one number, and lower/uppercase required.</span><br>
+            <span style="margin-left: 15px; font-size: 12px">Enter blank to not change password.</span>
+        </p>
+        <input type="hidden" name="manage" value="manage">
+        <input type="submit" value="Verify to save changes">
+        <br>$2
+    </form>
+    <form>
+        <p>
+            <label>Log out</label><br>
+            <input type="button" onclick="location.href = '/account/logout'" value="Log out">
+        </p>
+    </form>
+    <form action="/account/verify" method="POST">
+        <label>Delete Account</label><br>
+        <input type="hidden" name="un" value="$1">
+        <input type="submit" value="Delete Account" class="del">
+    </form>
+    <script src="/password.js"></script>
+</div>

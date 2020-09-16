@@ -1,0 +1,70 @@
+@import url('init.css');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h1,h4 {
+    margin: 15px;
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 15px;
+    background: #fafbfc;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    width: 350px;
+    height: 220px;
+}
+
+form label {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1.5px solid gray;
+    padding-bottom: 5px;
+    margin-bottom: 10%;
+}
+
+form input[type=password] {
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+form input[type=submit] {
+    background: #0366d6;
+    color: white;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    border: 1.5px solid #0366d6;
+    justify-self: flex-end;
+    padding: 5px;
+    border-radius: 2px;
+    font-size: 16px;
+    margin-top: auto;
+    transition: background .2s;
+}
+
+form input[type=submit]:hover, form input[type=submit]:focus {
+    background: rgba(3,102,214,.7);
+}
+
+.fail {
+    color: #cb2431;
+    font-size: 14px;
+    margin: 5px;
+}

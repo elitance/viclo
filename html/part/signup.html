@@ -14,22 +14,8 @@
             <label for="c-pw">Confirm Password</label><br>
             <input id="c-pw" type="password" name="cPw" placeholder="Confirm your password"><br>
         <p>
-        <input type="submit" value="Login" class="unav">
-        <script>
-            const pw = document.querySelectorAll('input[type=password]');
-            const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
-            pw.forEach((input) => {
-                input.addEventListener('input',(e) => {
-                    if (pw[0].value === pw[1].value && pw[0].value !== '' && pw[1].value !== '') {
-                        if (regex.test(pw[0].value)) {
-                            document.querySelector('input[type=submit]').classList.remove('unav');
-                        }
-                    } else {
-                        document.querySelector('input[type=submit]').classList.add('unav');
-                    }
-                })
-            });
-        </script>
+        <input type="submit" value="Sign Up" class="unav">
+        <script src="/password.js"></script>
     </form>
     $1
 </div>

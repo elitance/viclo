@@ -15,10 +15,6 @@ h1 {
     font-size: 45px;
 }
 
-h1:hover h4 {
-    color: #0366d6;
-}
-
 form {
     padding: 5px;
     margin: 30px;
