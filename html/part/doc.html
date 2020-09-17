@@ -1,6 +1,10 @@
 <div class="content">
     <div class="control">
         <button onclick="location.href = '/docs/update/$4'">Update</button>
+        <form action="/docs/delete" method="POST" onsubmit="event.preventDefault(); if (confirm('Deletion of document is only allowed for inappropriate documents. Otherwise, your account can be permanently suspended. Delete?')) event.target.submit();">
+            <input type="hidden" name="id" value="$4">
+            <button type="submit">Delete</button>
+        </form>
     </div>
     <h1>$1</h1>
     $2

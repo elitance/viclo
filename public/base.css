@@ -7,6 +7,7 @@ body {
     background: linear-gradient(to bottom,#ffffff 10%,gray 90%) fixed;
 }
 
+
 nav {
     display: flex;
     align-items: center;
@@ -54,6 +55,10 @@ nav a, nav a:hover {
     border-left: 1px solid #a7d7f9;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+.parent .content p {
+    overflow-wrap: break-word;
 }
 
 .parent .results-parent h1 {
@@ -163,9 +168,12 @@ form textarea {
 }
 
 .results div {
+    width: 250px;
+    height: 30%;
     font-weight: initial;
-    text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     color: gray;
     font-size: 15px;
 }
@@ -178,14 +186,30 @@ form textarea {
 .control button {
     margin-left: 10px;
     background: #fafbfc;
-    border: 1.5px solid #0366d6;
-    color: #0366d6;
+    cursor: pointer;
     border-radius: 3px;
     padding: 4px 7px 4px 7px;
     transition: background .2s, color .2s;
 }
 
 .control button:hover {
-    background: #0366d6;
     color: #fafbfc;
+}
+
+.control > button {
+    border: 1.5px solid #0366d6;
+    color: #0366d6;
+}
+
+.control form button {
+    border: 1.5px solid #cb2431;
+    color: #cb2431;
+}
+
+.control > button:hover {
+    background: #0366d6;
+}
+
+.control form button:hover {
+    background: #cb2431;
 }
