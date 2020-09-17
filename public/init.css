@@ -45,3 +45,7 @@ code {
   border-radius: 2px;
   font-family: Operator Mono, SFMono-Regular, Consolas, Menlo, Ubuntu Mono, monospace;
 }
+
+blockquote {
+  font-style: italic;
+}
