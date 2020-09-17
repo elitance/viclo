@@ -44,11 +44,17 @@ app.get('/search',(req,res) => {
     });
 });
 
-app.get('/contrib',(req,res) => {
+app.get('/contributors',(req,res) => {
     let acc = template.login;
     if (req.cookies.un) acc = template.accPage;
     res.send(template.html('Contributors',acc,template.part('contrib','')));
-})
+});
+
+app.get('/contact',(req,res) => {
+    let acc = template.login;
+    if (req.cookies.un) acc = template.accPage;
+    res.send(template.html('Contact',acc,template.part('contact','')));
+});
 
 app.use((req,res) => {
     res.send(template.notFound);
