@@ -54,4 +54,4 @@ app.use((req,res) => {
     res.send(template.notFound);
 });
 
-app.listen(80,fs.readFileSync('profile.txt','utf8').split(',')[2]);
+app.listen(80);

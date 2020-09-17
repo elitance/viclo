@@ -1,6 +1,6 @@
 <div class="content">
     <h1>Account Management</h1>
-    <form action="/account/verify" method="POST">
+    <form action="/account/verify" method="POST" autocomplete="off">
         <p>
             <label for="un">Change Username</label>
             <input type="text" id="un" name="un" placeholder="Enter your new name" value="$1" pattern="[A-Za-z0-9]+">
@@ -14,7 +14,6 @@
         </p>
         <input type="hidden" name="manage" value="manage">
         <input type="submit" value="Verify to save changes">
-        <br>$2
     </form>
     <form>
         <p>
@@ -27,5 +26,6 @@
         <input type="hidden" name="un" value="$1">
         <input type="submit" value="Delete Account" class="del">
     </form>
+    <br>$2
     <script src="/password.js"></script>
 </div>
