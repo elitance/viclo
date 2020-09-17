@@ -1,9 +1,9 @@
 <div class="content write">
-    <!-- <h1>Write a New Document</h1> -->
     <form action="/docs/write" method="POST" autocomplete="off">
         <input type="text" name="title" placeholder="Title" required>
         <textarea name="content" wrap="soft" placeholder="Content (Markdown/HTML Supported)" required></textarea>
         <input type="text" name="keywords" placeholder="Search Keywords (Split by Comma)" required>
         <input type="submit" value="Create New Document">
     </form>
+    <script src="/prevSubmit.js"></script>
 </div>
