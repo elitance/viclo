@@ -20,7 +20,7 @@ app.get('/',(req,res) => {
 });
 
 app.get('/search',(req,res) => {
-    const query = url.parse(req.url,true).query.q;
+    const query = url.parse(req.url,true).query.q.toLowerCase();
     let searchResults = new Array();
     db.query('select * from docs',(err,docs) => {
         docs.forEach((doc) => {
