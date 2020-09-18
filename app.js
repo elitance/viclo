@@ -15,9 +15,7 @@ app.use('/docs',require('./lib/docs'));
 
 app.get('/',(req,res) => {
     fs.readFile('html/index.html','utf8',(err,data) => {
-        let acc = template.login;
-        if (req.cookies.un) acc = template.accPage;
-        res.send(data.replace('$1',acc));
+        res.send(data.replace('$1',template.accLink(req.cookies.un)));
     });
 });
 
@@ -30,13 +28,11 @@ app.get('/search',(req,res) => {
                 if (keyword === query) searchResults.push([doc.id,doc.title,doc.content]);
             });
         });
-        let acc = template.login;
-        if (req.cookies.un) acc = template.accPage;
         if (!searchResults[0]) {
-            res.send(template.html(query,acc,template.part('search',query)));
+            res.send(template.html(query,template.accLink(req.cookies.un),template.part('search',[query])));
         } else {
             if (searchResults.length > 1) {
-                res.send(template.html(query,acc,`<div class='content'><h1>Search results for '${query}'</h1>${template.listData(searchResults)}</div>`));
+                res.send(template.html(query,template.accLink(req.cookies.un),`<div class='content'><h1>Search results for '${query}'</h1>${template.listData(searchResults)}</div>`));
             } else {
                 res.redirect(`/docs/${searchResults[0][0]}`);
             }
@@ -45,19 +41,15 @@ app.get('/search',(req,res) => {
 });
 
 app.get('/contributors',(req,res) => {
-    let acc = template.login;
-    if (req.cookies.un) acc = template.accPage;
-    res.send(template.html('Contributors',acc,template.part('contrib','')));
+    res.send(template.html('Contributors',template.accLink(req.cookies.un),template.part('contrib')));
 });
 
 app.get('/contact',(req,res) => {
-    let acc = template.login;
-    if (req.cookies.un) acc = template.accPage;
-    res.send(template.html('Contact',acc,template.part('contact','')));
+    res.send(template.html('Contact',template.accLink(req.cookies.un),template.part('contact')));
 });
 
 app.use((req,res) => {
-    res.send(template.notFound);
+    res.send(template.html('Not Found',template.accLink(req.cookies.un),template.part('notFound')));
 });
 
 app.listen(80);

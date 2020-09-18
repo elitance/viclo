@@ -131,6 +131,10 @@ form textarea {
     color: #cb2431;
 }
 
+.success {
+    color: #2ea44f;
+}
+
 .del {
     border: 1.5px solid #cb2431 !important;
     color: #cb2431 !important;
