@@ -5,6 +5,7 @@ const template = require('./lib/template');
 const db = require('./lib/mysql');
 
 const app = express();
+const host = fs.readFileSync('profile.txt','utf8').split(',')[2];
 
 app.use(require('body-parser').urlencoded({extended: false}));
 app.use(require('compression')());
@@ -29,7 +30,7 @@ app.get('/search',(req,res) => {
             });
         });
         if (!searchResults[0]) {
-            res.send(template.html(query,template.accLink(req.cookies.un),template.part('search',[query])));
+            res.send(template.html(query,template.accLink(req.cookies.un),template.part('noResult',[query])));
         } else {
             if (searchResults.length > 1) {
                 res.send(template.html(query,template.accLink(req.cookies.un),`<div class='content'><h1>Search results for '${query}'</h1>${template.listData(searchResults)}</div>`));

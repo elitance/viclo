@@ -24,6 +24,7 @@ form input {
     width: 500px;
     height: 40px;
     font-size: 16px;
+    border-radius: 3px !important;
 }
 
 .sidebar {
@@ -51,4 +52,27 @@ footer {
 
 footer img {
     height: 90%;
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 14px;
+    }
+
+    .sidebar a {
+        margin: 0;
+    }
+
+    form input {
+        width: 90vw;
+        height: 35px;
+    }
+
+    footer {
+        font-size: 14px;
+        text-align: center;
+    }
 }

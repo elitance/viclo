@@ -19,15 +19,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 input[type=text], input[type=password], input[type=email] {
+  background: #fafbfc;
   border: 1.5px solid gray;
   border-radius: 2px;
   padding: 5px 5px 5px 8px;
-  transition: border .2s, box-shadow .2s;
+  transition: border .2s, box-shadow .2s, background .2s;
 }
 
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
-  box-shadow: 0 0 1px #3366cc;
-  border: 1.5px solid #3366cc;
+  background: white;
+  box-shadow: 0 0 0 3px #0366d64d;
+  border: 1.5px solid #0366d6;
 }
 
 a {
@@ -43,7 +45,7 @@ code {
   background: rgb(27,31,35,.1);
   padding: 1px 5px 1px 5px;
   border-radius: 3px;
-  font-family: Operator Mono, SFMono-Regular, Consolas, Menlo, Ubuntu Mono, monospace;
+  font-family: SFMono-Regular, Consolas, Menlo, Ubuntu Mono, monospace;
 }
 
 blockquote {
