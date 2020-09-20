@@ -17,6 +17,7 @@ app.use('/docs',require('./lib/docs'));
 
 app.get('/',(req,res) => {
     fs.readFile('html/index.html','utf8',(err,data) => {
+        console.log(req.session.pw);
         res.send(data.replace('$1',template.accLink(req.session.un)));
     });
 });
