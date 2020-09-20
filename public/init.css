@@ -26,6 +26,10 @@ input[type=text], input[type=password], input[type=email] {
   transition: border .2s, box-shadow .2s, background .2s;
 }
 
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}
+
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
   background: white;
   box-shadow: 0 0 0 3px #0366d64d;

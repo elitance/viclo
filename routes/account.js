@@ -105,7 +105,7 @@ router.post('/signup',(req,res) => {
 });
 
 router.get('/logout',(req,res) => {
-    res.clearCookie('un');
+    req.session.destroy();
     res.redirect('/');
 });
 
