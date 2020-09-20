@@ -12,8 +12,8 @@ app.use(require('compression')());
 app.use(require('cookie-parser')());
 require('./lib/session')(app);
 app.use(express.static('public'));
-app.use('/account',require('./lib/account'));
-app.use('/docs',require('./lib/docs'));
+app.use('/account',require('./routes/account'));
+app.use('/docs',require('./routes/docs'));
 
 app.get('/',(req,res) => {
     fs.readFile('html/index.html','utf8',(err,data) => {

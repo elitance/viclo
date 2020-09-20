@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const showdown = require('showdown');
-const db = require('./mysql');
-const template = require('./template');
+const db = require('../lib/mysql');
+const template = require('../lib/template');
 
 const converter = new showdown.Converter();
 

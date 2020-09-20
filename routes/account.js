@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const url = require('url');
-const db = require('./mysql');
-const template = require('./template');
+const db = require('../lib/mysql');
+const template = require('../lib/template');
 
 router.get('/',(req,res) => {
     const query = url.parse(req.url,true).query;
