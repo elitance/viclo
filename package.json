@@ -27,6 +27,7 @@
     "express-mysql-session": "^2.1.4",
     "express-session": "^1.17.1",
     "mysql": "^2.18.1",
+    "sanitize-html": "^1.27.4",
     "showdown": "^1.9.1"
   }
 }
