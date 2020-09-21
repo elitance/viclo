@@ -1,3 +1,5 @@
+// const http = require('http');
+// const https = require('https');
 const express = require('express');
 const fs = require('fs');
 const url = require('url');
@@ -5,7 +7,15 @@ const template = require('./lib/template');
 const db = require('./lib/mysql');
 
 const app = express();
-const host = fs.readFileSync('profile.txt','utf8').split(',')[2];
+// const privateKey = fs.readFileSync('../../../Certbot/live/viclo.artrium.app/privkey.pem', 'utf8');
+// const certificate = fs.readFileSync('../../../Certbot/live/viclo.artrium.app/cert.pem', 'utf8');
+// const ca = fs.readFileSync('../../../Certbot/live/viclo.artrium.app/chain.pem', 'utf8');
+
+// const credentials = {
+// 	key: privateKey,
+// 	cert: certificate,
+// 	ca
+// };
 
 app.use(require('body-parser').urlencoded({extended: false}));
 app.use(require('compression')());
@@ -18,7 +28,6 @@ app.use('/docs',require('./routes/docs'));
 
 app.get('/',(req,res) => {
     fs.readFile('html/index.html','utf8',(err,data) => {
-        console.log(req.session.pw);
         res.send(data.replace('#$1',template.accLink(req.session.un)));
     });
 });
@@ -57,3 +66,7 @@ app.use((req,res) => {
 });
 
 app.listen(80);
+
+// http.createServer(app).listen(80);
+
+// https.createServer(credentials,app).listen(443);
