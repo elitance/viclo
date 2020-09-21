@@ -10,6 +10,7 @@ const host = fs.readFileSync('profile.txt','utf8').split(',')[2];
 app.use(require('body-parser').urlencoded({extended: false}));
 app.use(require('compression')());
 app.use(require('cookie-parser')());
+app.use(require('helmet')());
 require('./lib/session')(app);
 app.use(express.static('public'));
 app.use('/account',require('./routes/account'));
