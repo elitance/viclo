@@ -8,5 +8,6 @@
   - Body Parser
   - Cookie Parser
   - Compression
+  - Helmet
 - MySQL
 - Showdown
