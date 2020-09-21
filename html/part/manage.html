@@ -1,10 +1,10 @@
 <div class="content">
     <h1>Account</h1>
-    $2
+    #$2
     <form action="/account/verify" method="POST" autocomplete="off">
         <p>
             <label for="un">Change Username</label>
-            <input type="text" id="un" name="un" placeholder="Enter your new name" value="$1" pattern="[A-Za-z0-9]+">
+            <input type="text" id="un" name="un" placeholder="Enter your new name" value="#$1" pattern="[A-Za-z0-9]+">
         </p>
         <p>
             <label for="pw">Change Password</label>
@@ -19,12 +19,12 @@
     <form>
         <p>
             <label>Log out</label><br>
-            <input type="button" onclick="location.href = '/account/logout'" value="Log out">
+            <input type="button" value="Log out">
         </p>
     </form>
     <form action="/account/verify" method="POST">
         <label>Delete Account</label><br>
-        <input type="hidden" name="un" value="$1">
+        <input type="hidden" name="un" value="#$1">
         <input type="submit" value="Delete Account" class="del">
     </form>
     <script src="/logout.js"></script>

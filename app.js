@@ -19,7 +19,7 @@ app.use('/docs',require('./routes/docs'));
 app.get('/',(req,res) => {
     fs.readFile('html/index.html','utf8',(err,data) => {
         console.log(req.session.pw);
-        res.send(data.replace('$1',template.accLink(req.session.un)));
+        res.send(data.replace('#$1',template.accLink(req.session.un)));
     });
 });
 
