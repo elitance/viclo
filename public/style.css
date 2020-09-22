@@ -67,6 +67,10 @@ footer img {
         margin: 0;
     }
 
+    .sidebar a:nth-last-child(2) {
+        display: none;
+    }
+
     form input {
         width: 90vw;
         height: 35px;
@@ -75,5 +79,29 @@ footer img {
     footer {
         font-size: 14px;
         text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 35px;
+        margin-bottom: 0;
+    }
+
+    h4 {
+        font-size: 13px;
+    }
+
+    .sidebar {
+        font-size: 12px;
+    }
+
+    form input {
+        font-size: 14px;
+        height: 33px;
+    }
+
+    footer {
+        font-size: 12px;
     }
 }

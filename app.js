@@ -45,7 +45,7 @@ app.get('/search',(req,res) => {
             res.send(template.html(query,template.accLink(req.session.un),template.part('noResult',[query])));
         } else {
             if (searchResults.length > 1) {
-                res.send(template.html(query,template.accLink(req.session.un),`<div class='content'><h1>Search results for '${query}'</h1>${template.listData(searchResults)}</div>`));
+                res.send(template.html(query,template.accLink(req.session.un),`<div class='content search'><h1>Search results for '${query}'</h1>${template.listData(searchResults)}</div>`));
             } else {
                 res.redirect(`/docs/${searchResults[0][0]}`);
             }

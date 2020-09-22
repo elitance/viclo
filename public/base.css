@@ -353,6 +353,10 @@ form textarea:focus {
         z-index: 2;
     }
 
+    nav .desc {
+        font-size: 12px;
+    }
+
     nav .toggle {
         position: absolute;
         top: 15px;
@@ -398,6 +402,7 @@ form textarea:focus {
         flex-basis: 100%;
         border-left: none;
         padding: 20px;
+        font-size: 13px;
     }
     
     .parent .content-expand {
@@ -405,15 +410,20 @@ form textarea:focus {
     }
 
     .parent .content h1 {
-        font-size: 25px;
+        font-size: 22px;
     }
 
     .parent .no-result h1 {
         font-size: 55px;
     }
 
-    input {
-        display: block;
+    .parent .content .results {
+        box-shadow: 1px 1px 5px rgba(0,0,0,.3);
+        margin-left: 0;
+    }
+
+    .parent .content .results div {
+        font-size: 14px;
     }
 
     input[type=text], input[type=password], input[type=email] {
