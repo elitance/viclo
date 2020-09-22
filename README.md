@@ -11,3 +11,5 @@
   - Helmet
 - MySQL
 - Showdown
+
+Note: The URL https://viclo.artrium.app won't always work since my PC is sometimes turned off. Please consider it.
