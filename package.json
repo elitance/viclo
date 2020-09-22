@@ -28,6 +28,8 @@
     "express-session": "^1.17.1",
     "helmet": "^4.1.1",
     "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "sanitize-html": "^1.27.4",
     "showdown": "^1.9.1"
   }

@@ -2,7 +2,7 @@
 
 ### Clone of [Wikipedia](https://en.wikipedia.org), made in order to practice Node.js & Express.
 
-## Module/APIs
+## Used Module/APIs
 
 - Express
   - Body Parser
@@ -12,4 +12,11 @@
 - MySQL
 - Showdown
 
-Note: The URL https://viclo.artrium.app won't always work since my PC is sometimes turned off. Please consider it.
+## Acknowledgements
+
+The URL https://viclo.artrium.app will be not available sometimes.
+It is not available when:
+
+- Site is being developed
+- 11:00PM - 8:30AM (KST)
+- PC is not connected to internet
