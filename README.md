@@ -18,5 +18,5 @@ The URL https://viclo.artrium.app will be not available sometimes.
 It is not available when:
 
 - Site is being developed
-- 11:00PM - 8:30AM (KST)
+- 02:00PM - 11:30PM (UTC)
 - PC is not connected to internet
