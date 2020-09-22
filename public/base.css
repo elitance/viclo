@@ -203,6 +203,21 @@ form textarea:focus {
     font-size: 15px;
 }
 
+.user {
+    font-weight: 600;
+    color: black;
+}
+
+.user:hover, .user:focus {
+    text-decoration: none;
+    color: #0366d6;
+}
+
+#about {
+    width: 50%;
+    height: 500px;
+}
+
 .control {
     display: flex;
     justify-content: flex-end;

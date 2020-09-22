@@ -11,7 +11,7 @@ router.get('/write',(req,res) => {
 });
 
 router.post('/write',(req,res) => {
-    db.query('insert into docs (title,content,author,keywords) values (?, ?, ?, ?)',[req.body.title,req.body.content,req.session.un,req.body.keywords.toLowerCase()],(err,data) => {
+    db.query('insert into docs (title,content,author,keywords) values (?, ?, ?, ?)',[req.body.title,req.body.content,`@${req.session.un}`,req.body.keywords.toLowerCase()],(err,data) => {
         if (err) throw err;
         res.redirect(`/docs/${data.insertId}`);
     });
@@ -24,10 +24,16 @@ router.get('/:page',(req,res) => {
         } else {
             const content = converter.makeHtml(docs[0].content);
             let deleteBtn = '';
-            if (req.session.un === 'root') {
-                deleteBtn = '<button type="submit">Delete</button>'
-            }
-            res.send(template.html(docs[0].title,template.accLink(req.session.un),template.part('doc',[docs[0].title,content,docs[0].author,docs[0].id,deleteBtn])));
+            let authors = '';
+            docs[0].author.split(', ').forEach((author) => {
+                if (author !== '[Deleted Account]') {
+                    authors += `, <a href="/account/user/${author}" class="user">@${author}</a>`;
+                } else {
+                    authors += `, ${author}`;
+                }
+            });
+            if (req.session.un === 'root') deleteBtn = '<button type="submit">Delete</button>';
+            res.send(template.html(docs[0].title,template.accLink(req.session.un),template.part('doc',[docs[0].title,content,authors.slice(2),docs[0].id,deleteBtn])));
         }
     });
 });
@@ -55,7 +61,9 @@ router.get('/update/:page',(req,res) => {
 router.post('/update/:page',(req,res) => {
     db.query('update docs set title = ?, content = ?, keywords = ? where id = ?',[req.body.title,req.body.content,req.body.keywords.toLowerCase(),req.params.page],(err,data) => {
         db.query('select * from docs where id = ?',[req.params.page],(err,data) => {
-            if (!data[0].author.includes(req.session.un)) {
+            let includes = false;
+            data[0].author.split(', ').forEach((a) => {if (a === req.session.un) includes = true;});
+            if (!includes) {
                 db.query('update docs set author = ? where id = ?',[`${data[0].author}, ${req.session.un}`,req.params.page],(err,data) => {
                     res.redirect(`/docs/${req.params.page}`);
                 });

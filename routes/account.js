@@ -76,7 +76,7 @@ router.post('/login',(req,res) => {
             if (req.body.keep === 'on') req.session.cookie.maxAge = 31536000000;
             req.session.un = req.body.un;
             req.session.pw = req.body.pw;
-            res.redirect('/');
+            res.redirect(`/account/user/${req.body.un}`);
         }
     });
 });
@@ -95,7 +95,7 @@ router.get('/signup',(req,res) => {
 router.post('/signup',(req,res) => {
     db.query('select * from account where un = ?',[req.body.un],(err,un) => {
         if (!un[0]) {
-            db.query('insert into account (un,pw) values (?, ?)',[req.body.un,template.crypto(req.body.pw)],(err,data) => {
+            db.query('insert into account (un, pw, about) values (?, ?, ?)',[req.body.un,template.crypto(req.body.pw),req.body.about],(err,data) => {
                 res.redirect('/account/login');
             });
         } else {
@@ -107,6 +107,18 @@ router.post('/signup',(req,res) => {
 router.get('/logout',(req,res) => {
     req.session.destroy();
     res.redirect('/');
+});
+
+router.get('/user/:un',(req,res) => {
+    db.query('select * from account where un = ?',[req.params.un],(err,account) => {
+        if (!account[0]) {
+            res.send(template.html('Not Found',template.accLink(req.session.un),template.part('notFound')));
+        } else {
+            let about = `No description for <a href="/account/user/${req.params.un}">@${req.params.un}</a>.`;
+            if (account[0].about) about = account[0].about;
+            res.send(template.html(req.params.un,template.accLink(req.session.un),template.part('user',[req.params.un,about])));
+        }
+    });
 });
 
 router.post('/verify',(req,res) => {
