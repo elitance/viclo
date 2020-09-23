@@ -14,7 +14,7 @@
 
 ## Acknowledgements
 
-The URL https://viclo.artrium.app will be not available sometimes.
+The URL https://viclo.elitance.dev will be not available sometimes.
 It is not available when:
 
 - Site is being developed
