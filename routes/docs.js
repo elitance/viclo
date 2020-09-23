@@ -29,7 +29,7 @@ router.get('/:page',(req,res) => {
                 if (author !== '[Deleted Account]') {
                     authors += `, <a href="/account/user/${author}" class="user">@${author}</a>`;
                 } else {
-                    authors += `, ${author}`;
+                    authors += `, <span class="del-auth">${author}</span>`;
                 }
             });
             if (req.user) if (req.user.un === 'root') deleteBtn = '<button type="submit">Delete</button>';

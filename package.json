@@ -1,24 +1,18 @@
 {
-  "name": "dikipedia",
+  "name": "viclopedia",
   "version": "1.0.0",
   "description": "Clone of Wikipedia",
   "main": "app.js",
-  "directories": {
-    "doc": "doc"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ldhan0715/dikipedia.git"
-  },
-  "author": "Lucas Han",
+  "repository": "git+https://github.com/elitance/viclopedia.git",
+  "author": "elitance",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ldhan0715/dikipedia/issues"
+    "url": "https://github.com/elitance/viclopedia/issues"
   },
-  "homepage": "https://github.com/ldhan0715/dikipedia#readme",
+  "homepage": "https://github.com/elitance/viclopedia#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",

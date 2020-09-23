@@ -357,6 +357,10 @@ form textarea:focus {
     background: #d14836;
 }
 
+.del-auth {
+    color: gray;
+}
+
 @media (max-width: 700px) {
     body {
         overflow: hidden;
