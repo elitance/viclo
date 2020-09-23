@@ -6,12 +6,12 @@ const template = require('../lib/template');
 const converter = new showdown.Converter();
 
 router.get('/write',(req,res) => {
-    if (!req.session.un) {res.redirect('/account/login'); return; }
-    res.send(template.html('Write',template.accLink(req.session.un),template.part('write')));
+    if (!req.user) {res.redirect('/account/login'); return; }
+    res.send(template.html('Write',template.part('write'),req));
 });
 
 router.post('/write',(req,res) => {
-    db.query('insert into docs (title,content,author,keywords) values (?, ?, ?, ?)',[req.body.title,req.body.content,`@${req.session.un}`,req.body.keywords.toLowerCase()],(err,data) => {
+    db.query('insert into docs (title,content,author,keywords) values (?, ?, ?, ?)',[req.body.title,req.body.content,`@${req.user.un}`,req.body.keywords.toLowerCase()],(err,data) => {
         if (err) throw err;
         res.redirect(`/docs/${data.insertId}`);
     });
@@ -20,7 +20,7 @@ router.post('/write',(req,res) => {
 router.get('/:page',(req,res) => {
     db.query('select * from docs where id = ?',[req.params.page],(err,docs) => {
         if (!docs[0]) {
-            res.send(template.html('Not Found',template.accLink(req.session.un),template.part('notFound')));
+            res.send(template.html('Not Found',template.part('notFound'),req));
         } else {
             const content = converter.makeHtml(docs[0].content);
             let deleteBtn = '';
@@ -32,20 +32,20 @@ router.get('/:page',(req,res) => {
                     authors += `, ${author}`;
                 }
             });
-            if (req.session.un === 'root') deleteBtn = '<button type="submit">Delete</button>';
-            res.send(template.html(docs[0].title,template.accLink(req.session.un),template.part('doc',[docs[0].title,content,authors.slice(2),docs[0].id,deleteBtn])));
+            if (req.user) if (req.user.un === 'root') deleteBtn = '<button type="submit">Delete</button>';
+            res.send(template.html(docs[0].title,template.part('doc',[docs[0].title,content,authors.slice(2),docs[0].id,deleteBtn]),req));
         }
     });
 });
 
 router.get('/update/:page',(req,res) => {
     db.query('select * from docs where id = ?',[req.params.page],(err,doc) => {
-        if (!req.session.un) {res.redirect('/account/login'); return;}
+        if (!req.user) {res.redirect('/account/login'); return;}
         if (!doc[0]) {
-            res.send(template.html('Not Found',template.accLink(req.session.un),template.part('notFound')));
+            res.send(template.html('Not Found',template.part('notFound'),req));
             return;
         }
-        res.send(template.html('Update',template.accLink(req.session.un),`
+        res.send(template.html('Update',`
         <div class="content write">
             <form action="/docs/update/${req.params.page}" method="POST">
                 <input type="text" name="title" placeholder="Title" required value="${doc[0].title}">
@@ -54,7 +54,7 @@ router.get('/update/:page',(req,res) => {
                 <input type="submit" value="Update Document">
             </form>
         </div>
-        `))
+        `,req))
     })
 });
 
@@ -62,9 +62,9 @@ router.post('/update/:page',(req,res) => {
     db.query('update docs set title = ?, content = ?, keywords = ? where id = ?',[req.body.title,req.body.content,req.body.keywords.toLowerCase(),req.params.page],(err,data) => {
         db.query('select * from docs where id = ?',[req.params.page],(err,data) => {
             let includes = false;
-            data[0].author.split(', ').forEach((a) => {if (a === req.session.un) includes = true;});
+            data[0].author.split(', ').forEach((a) => {if (a === req.user.un) includes = true;});
             if (!includes) {
-                db.query('update docs set author = ? where id = ?',[`${data[0].author}, ${req.session.un}`,req.params.page],(err,data) => {
+                db.query('update docs set author = ? where id = ?',[`${data[0].author}, ${req.user.un}`,req.params.page],(err,data) => {
                     res.redirect(`/docs/${req.params.page}`);
                 });
             } else {
