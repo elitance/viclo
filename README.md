@@ -20,3 +20,4 @@ It is not available when:
 - Site is being developed
 - 02:00PM - 11:30PM (UTC)
 - PC is not connected to internet
+- Whenever I don't wanna run my server 😂
