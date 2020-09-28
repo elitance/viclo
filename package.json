@@ -1,29 +1,29 @@
 {
-  "name": "viclopedia",
-  "version": "1.0.0",
-  "description": "Clone of Wikipedia",
-  "main": "app.js",
-  "scripts": {
-    "start": "pm2 start app.js --watch"
-  },
-  "repository": "git+https://github.com/elitance/viclopedia.git",
-  "author": "elitance",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/elitance/viclopedia/issues"
-  },
-  "homepage": "https://github.com/elitance/viclopedia#readme",
-  "dependencies": {
-    "compression": "^1.7.4",
-    "cookie-parser": "^1.4.5",
-    "express": "^4.17.1",
-    "express-mysql-session": "^2.1.4",
-    "express-session": "^1.17.1",
-    "helmet": "^4.1.1",
-    "mysql": "^2.18.1",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "sanitize-html": "^1.27.4",
-    "showdown": "^1.9.1"
-  }
+   "name": "viclopedia",
+   "version": "1.0.0",
+   "description": "Clone of Wikipedia",
+   "main": "app.js",
+   "scripts": {
+      "start": "pm2 start app.js --watch"
+   },
+   "repository": "git+https://github.com/elitance/viclo.git",
+   "author": "elitance",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/elitance/viclo/issues"
+   },
+   "homepage": "https://github.com/elitance/viclo#readme",
+   "dependencies": {
+      "compression": "^1.7.4",
+      "cookie-parser": "^1.4.5",
+      "express": "^4.17.1",
+      "express-mysql-session": "^2.1.4",
+      "express-session": "^1.17.1",
+      "helmet": "^4.1.1",
+      "mysql": "^2.18.1",
+      "passport": "^0.4.1",
+      "passport-local": "^1.0.0",
+      "sanitize-html": "^1.27.4",
+      "showdown": "^1.9.1"
+   }
 }
