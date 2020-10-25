@@ -14,6 +14,8 @@
 
 ## Acknowledgements
 
+**Important**: From 24 September 2020, Viclopedia server ***won't be running***.
+
 The URL https://viclo.elitance.dev will be not available sometimes.
 It is not available when:
 
